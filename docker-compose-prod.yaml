@@ -1,0 +1,19 @@
+#em prod o container do mongodb está sendo gerenciado por outro serviço
+#separado no servidor
+
+services:
+  chico: 
+    build: .
+    container_name: chico
+    networks:
+      - local
+    ports:
+      - '3000:3000'
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      DATABASE_URL: ${DATABASE_URL}
+    restart: unless-stopped
+
+networks:
+  local:
+    external: true

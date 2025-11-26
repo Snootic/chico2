@@ -1,0 +1,9 @@
+FROM mongo:latest
+
+WORKDIR /docker-entrypoint-initdb.d/
+
+COPY mongo-init.js /docker-entrypoint-initdb.d/
+
+RUN chown -R mongodb:mongodb /docker-entrypoint-initdb.d/
+
+EXPOSE 27017

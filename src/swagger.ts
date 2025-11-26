@@ -57,8 +57,12 @@ const doc = {
   components: {
     schemas: definitions
   },
-  host: api.url,
-  schemes: ['http', 'https']
+  servers: [
+    {
+      url: api.url,
+      description: 'API P2 Chico'
+    },
+  ]
 };
 
 const outputFile = './swagger-output.json';

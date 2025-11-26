@@ -3,15 +3,18 @@
 
 services:
   chico:
-    build: .
+    build:
+      context: .
+      dockerfile: dockerfile
     container_name: chico
     networks:
       - local
     ports:
       - '3000'
     environment:
-      NODE_ENV: ${NODE_ENV}
       DATABASE_URL: ${DATABASE_URL}
+      DATABASE_USER: ${DATABASE_USER}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
     restart: unless-stopped
 
 networks:

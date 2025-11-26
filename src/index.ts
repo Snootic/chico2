@@ -41,7 +41,7 @@ function startServer() {
 }
 
 if (!fs.existsSync(swaggerJsonPath)) {
-  swaggerAutogen()(outputFile, routesEndpoints, doc).then(() => {
+  swaggerAutogen({openapi: '3.0.0'})(outputFile, routesEndpoints, doc).then(() => {
     console.log('Swagger gerado com sucesso!');
     startServer();
   });

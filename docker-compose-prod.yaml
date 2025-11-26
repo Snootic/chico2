@@ -2,13 +2,13 @@
 #separado no servidor
 
 services:
-  chico: 
+  chico:
     build: .
     container_name: chico
     networks:
       - local
     ports:
-      - '3000:3000'
+      - '3000'
     environment:
       NODE_ENV: ${NODE_ENV}
       DATABASE_URL: ${DATABASE_URL}

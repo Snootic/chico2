@@ -2,6 +2,7 @@ import m2s from 'mongoose-to-swagger';
 import mongoose from 'mongoose';
 import { AuthorSchema, BookSchema, LoanSchema, UserSchema } from './models';
 import path from 'path';
+import api from './api';
 
 const defaultDefinitionsOptions = {
   omitMongooseInternals: true, 
@@ -55,7 +56,9 @@ const doc = {
   },
   components: {
     schemas: definitions
-  }
+  },
+  host: api.url,
+  schemes: ['http', 'https']
 };
 
 const outputFile = './swagger-output.json';

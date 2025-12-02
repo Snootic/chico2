@@ -42,10 +42,7 @@ const definitions = Object.keys(rawDefinitions).reduce((acc: any, key) => {
   
   const cleanObject = simplifySchema(schema, true);
 
-  acc[key] = {
-    ...schema,
-    example: cleanObject 
-  };
+  acc[key] = cleanObject;
   return acc;
 }, {});
 

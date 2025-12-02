@@ -53,11 +53,13 @@ router.get("/user/email/:email",
 router.post("/user", 
   /* #swagger.tags = ['User']
 	  #swagger.summary = 'Cria um novo usuário'
-	  #swagger.parameters['body'] = {
-			in: 'body',
-			description: 'Dados do usuário',
+	  #swagger.requestBody = {
 			required: true,
-			schema: { $ref: '#/components/schemas/User' }
+			content: {
+				"application/json": {
+					schema: { $ref: '#/components/schemas/User' }
+				}
+			}
 	  }
 	  #swagger.responses[201] = {
 		  description: 'Usuário criado',
@@ -75,11 +77,13 @@ router.put("/user/:id",
   /* #swagger.tags = ['User']
 	  #swagger.summary = 'Atualiza um usuário'
 	  #swagger.parameters['id'] = { in: 'path', description: 'ID do usuário', required: true, type: 'string' }
-	  #swagger.parameters['body'] = {
-			in: 'body',
-			description: 'Dados do usuário',
+	  #swagger.requestBody = {
 			required: true,
-			schema: { $ref: '#/components/schemas/User' }
+			content: {
+				"application/json": {
+					schema: { $ref: '#/components/schemas/User' }
+				}
+			}
 	  }
 	  #swagger.responses[200] = {
 		  description: 'Usuário atualizado',

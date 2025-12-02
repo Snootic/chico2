@@ -53,11 +53,13 @@ router.get("/author/nome/:name",
 router.post("/author", 
   /* #swagger.tags = ['Author']
 	  #swagger.summary = 'Cria um novo autor'
-	  #swagger.parameters['body'] = {
-			in: 'body',
-			description: 'Dados do autor',
+	  #swagger.requestBody = {
 			required: true,
-			schema: { $ref: '#/components/schemas/Author' }
+			content: {
+				"application/json": {
+					schema: { $ref: '#/components/schemas/Author' }
+				}
+			}
 	  }
 	  #swagger.responses[201] = {
 		  description: 'Autor criado',
@@ -75,11 +77,13 @@ router.put("/author/:id",
   /* #swagger.tags = ['Author']
 	  #swagger.summary = 'Atualiza um autor'
 	  #swagger.parameters['id'] = { in: 'path', description: 'ID do autor', required: true, type: 'string' }
-	  #swagger.parameters['body'] = {
-			in: 'body',
-			description: 'Dados do autor',
+	  #swagger.requestBody = {
 			required: true,
-			schema: { $ref: '#/components/schemas/Author' }
+			content: {
+				"application/json": {
+					schema: { $ref: '#/components/schemas/Author' }
+				}
+			}
 	  }
 	  #swagger.responses[200] = {
 		  description: 'Autor atualizado',

@@ -93,11 +93,13 @@ router.get("/loan/usuario/:userId",
 router.post("/loan", 
   /* #swagger.tags = ['Loan']
 	  #swagger.summary = 'Cria um novo empréstimo'
-	  #swagger.parameters['body'] = {
-		  in: 'body',
-		  description: 'Dados do empréstimo',
+	  #swagger.requestBody = {
 		  required: true,
-		  schema: { $ref: '#/components/schemas/Loan' }
+		  content: {
+			  "application/json": {
+				  schema: { $ref: '#/components/schemas/Loan' }
+			  }
+		  }
 	  }
 	  #swagger.responses[201] = {
 		  description: 'Empréstimo criado',
@@ -121,11 +123,13 @@ router.put("/loan/:id",
   /* #swagger.tags = ['Loan']
 	  #swagger.summary = 'Atualiza um empréstimo'
 	  #swagger.parameters['id'] = { in: 'path', description: 'ID do empréstimo', required: true, type: 'string' }
-	  #swagger.parameters['body'] = {
-		  in: 'body',
-		  description: 'Dados do empréstimo',
+	  #swagger.requestBody = {
 		  required: true,
-		  schema: { $ref: '#/components/schemas/Loan' }
+		  content: {
+			  "application/json": {
+				  schema: { $ref: '#/components/schemas/Loan' }
+			  }
+		  }
 	  }
 	  #swagger.responses[200] = {
 		  description: 'Empréstimo atualizado',

@@ -69,11 +69,13 @@ router.get("/book/author/:authorId",
 router.post("/book", 
   /* #swagger.tags = ['Book']
 	  #swagger.summary = 'Cria um novo livro'
-	  #swagger.parameters['body'] = {
-			in: 'body',
-			description: 'Dados do livro',
+	  #swagger.requestBody = {
 			required: true,
-			schema: { $ref: '#/components/schemas/Book' }
+			content: {
+				"application/json": {
+					schema: { $ref: '#/components/schemas/Book' }
+				}
+			}
 	  }
 	  #swagger.responses[201] = {
 		  description: 'Livro criado',
@@ -91,11 +93,13 @@ router.put("/book/:id",
   /* #swagger.tags = ['Book']
 	  #swagger.summary = 'Atualiza um livro'
 	  #swagger.parameters['id'] = { in: 'path', description: 'ID do livro', required: true, type: 'string' }
-	  #swagger.parameters['body'] = {
-			in: 'body',
-			description: 'Dados do livro',
+	  #swagger.requestBody = {
 			required: true,
-			schema: { $ref: '#/components/schemas/Book' }
+			content: {
+				"application/json": {
+					schema: { $ref: '#/components/schemas/Book' }
+				}
+			}
 	  }
 	  #swagger.responses[200] = {
 		  description: 'Livro atualizado',

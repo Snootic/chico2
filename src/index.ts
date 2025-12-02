@@ -14,7 +14,7 @@ import api from './api';
 const app = express();
 dotenv.config();
 
-const swaggerJsonPath = path.resolve(__dirname, './swagger-output.json');
+const swaggerJsonPath = outputFile;
 
 function startServer() {
   app.use(morgan('dev'));
@@ -40,11 +40,7 @@ function startServer() {
   });
 }
 
-if (!fs.existsSync(swaggerJsonPath)) {
-  swaggerAutogen({openapi: '3.0.0'})(outputFile, routesEndpoints, doc).then(() => {
-    console.log('Swagger gerado com sucesso!');
-    startServer();
-  });
-} else {
+swaggerAutogen({openapi: '3.0.0'})(outputFile, routesEndpoints, doc).then(() => {
+  console.log('Swagger gerado com sucesso!');
   startServer();
-}
+});

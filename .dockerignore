@@ -2,3 +2,5 @@
 node_modules
 **/*.log
 tmp
+swagger-output.json
+dist/swagger-output.json

@@ -62,7 +62,7 @@ const doc = {
   ]
 };
 
-const outputFile = './swagger-output.json';
+const outputFile = path.resolve(__dirname, './swagger-output.json');
 const routesEndpoints = [path.join(__dirname, './routes/*.{ts,js}')];
 
 export { doc, outputFile, routesEndpoints };
